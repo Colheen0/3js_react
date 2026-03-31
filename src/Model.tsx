@@ -10,15 +10,35 @@ export default function Model( {currentAnimation, ...props}: ModelProps) {
 
 const groupRef = useRef<THREE.Group>(null!)
 
-const { scene, animations : baseAnimations } = useGLTF('public/models/yu_narukami_p5r.glb')
+//appel du model dans le dossier models 
+const { scene, animations: baseAnimations } = useGLTF('public/models/bot.glb')
 
-const { animations : mixamoAnimations } = useGLTF('public/animations/Death.glb')
+//appel des animation dans le dossier animations 
+const { animations : danceAnimations } = useGLTF('public/animations/dance.glb')
+const { animations : kickAnimations } = useGLTF('public/animations/kick.glb')
+const { animations : flipAnimations } = useGLTF('public/animations/flip.glb')
+const { animations : magicAnimations } = useGLTF('public/animations/magic.glb')
+const { animations : phoneAnimations } = useGLTF('public/animations/phone.glb')
 
-console.log("Animation Mixamo :", mixamoAnimations)
+//on clone les animation pour pouvoir les renommer et les utiliser
+const cloneDance = danceAnimations.length ? [danceAnimations[0].clone()] : []
+const cloneKick = kickAnimations.length ? [kickAnimations[0].clone()] : []
+const cloneFlip = flipAnimations.length ? [flipAnimations[0].clone()] : []
+const cloneMagic = magicAnimations.length ? [magicAnimations[0].clone()] : []
+const clonePhone = phoneAnimations.length ? [phoneAnimations[0].clone()] : []
 
-const allAnimations = [...baseAnimations, ...mixamoAnimations]
+
+//on renomme les animations pour pouvoir les appeler facilement dans la scène
+if (cloneDance.length) cloneDance[0].name = 'Dance'
+if (cloneKick.length) cloneKick[0].name = 'Kick'
+if (cloneFlip.length) cloneFlip[0].name = 'Flip'
+if (cloneMagic.length) cloneMagic[0].name = 'Magic'
+if (clonePhone.length) clonePhone[0].name = 'Phone'
+
+const allAnimations = [...baseAnimations, ...cloneDance, ...cloneKick, ...cloneFlip, ...cloneMagic, ...clonePhone]
 
 const { actions } = useAnimations(allAnimations, groupRef)
+
 
 useEffect(() => {
   if (actions[currentAnimation]) {
@@ -37,5 +57,9 @@ useEffect(() => {
   )
 }
 
-useGLTF.preload('public/models/yu_narukami_p5r.glb')
-useGLTF.preload('public/animations/Dance.glb')
+useGLTF.preload('public/models/bot.glb')
+useGLTF.preload('public/animations/dance.glb')
+useGLTF.preload('public/animations/kick.glb')
+useGLTF.preload('public/animations/flip.glb')
+useGLTF.preload('public/animations/magic.glb')
+useGLTF.preload('public/animations/phone.glb')

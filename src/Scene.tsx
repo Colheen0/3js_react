@@ -27,18 +27,30 @@ export function Scene() {
                 <Vignette eskil={false} offset={0.1} darkness={1.1} />
                 <Bloom luminanceThreshold={0.5} mipmapBlur intensity={0.5} />
             </EffectComposer>
-            <Html position={[-3, 0, 0]}>
+            <Html position={[-7, 2, 0]}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px'}}>
                     <button onClick={() => setAnimActive('Take 001')}>
                         idle
                     </button>
-                    <button onClick={() => setAnimActive('Armature|mixamo.com|Layer0')}>
-                        Death
+                    <button onClick={() => setAnimActive('Dance')}>
+                        Dance
+                    </button>
+                    <button onClick={() => setAnimActive('Flip')}>
+                        Flip
+                    </button>
+                    <button onClick={() => setAnimActive('Kick')}>
+                        Kick
+                    </button>
+                    <button onClick={() => setAnimActive('Magic')}>
+                        Magic
+                    </button>
+                    <button onClick={() => setAnimActive('Phone')}>
+                        Phone
                     </button>
                 </div>
             </Html>
 
-            <Model currentAnimation={animActive} position={[0, -2, 0]} scale={1} />
+            <Model currentAnimation={animActive} position={[0, -1, 2.8]} scale={1} />
             {/* <OrbitControls /> */}
             <ambientLight intensity={0.5} />
             <pointLight ref={pointLightRef} position={[2, 2, 2]} intensity={10} color="#ffffff" />
