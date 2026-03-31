@@ -39,7 +39,7 @@ const allAnimations = [...baseAnimations, ...cloneDance, ...cloneKick, ...cloneF
 
 const { actions } = useAnimations(allAnimations, groupRef)
 
-
+//on utilise useEffect pour jouer l'animation sélectionnée et arrêter les autres
 useEffect(() => {
   if (actions[currentAnimation]) {
     actions[currentAnimation].reset().fadeIn(0.5).play()
@@ -57,6 +57,7 @@ useEffect(() => {
   )
 }
 
+//on récharge les modèles et les animations pour plus de fluidité
 useGLTF.preload('public/models/bot.glb')
 useGLTF.preload('public/animations/dance.glb')
 useGLTF.preload('public/animations/kick.glb')
