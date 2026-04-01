@@ -19,7 +19,7 @@ magie : une animation simple où le modèle mime le lancement d'un sort.
 téléphone : le modèle mime de répondre à un appel et se déplace un peu.
 
 Pour le Model
-Malheureusement je voulais à la base utiliser un model qui venais du jeu mais à cause de la difficulté d'accorder le model au animation mixamo je me suis rabattu sur un model neutre de mixamo
+Malheureusement je voulais à la base utiliser un model qui venais du jeu mais à cause de la difficulté d'accorder le model aux animations mixamo je me suis rabattu sur un model neutre de mixamo
 
 lien vers le model de base : 
 https://sketchfab.com/3d-models/yu-narukami-p5r-24f399e6f82a45d39017ee0a94ad93ce
