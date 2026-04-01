@@ -1,75 +1,46 @@
-# React + TypeScript + Vite
+-- Le Tunnel de Minuit
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bienvenue sur la chaîne de minuit pour un programme spécial où vous pouvez manipuler le sujet présent sur l'écran !!!
 
-Currently, two official plugins are available:
+-- La base du concept
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Le concept de ce projet est inspiré du jeu Persona 4, dans lequel la chaîne de minuit est un programme qui se lance uniquement les nuits de brouillard après minuit. Ici, on reprend le concept en mettant en scène un modèle 3D au centre d'un tourbillon de torus infinis jaunes avec un fond noir qui reprend l'imagerie de Persona 4. Pour ce qui est de l'interaction, l'utilisateur peut lancer des animations sur le modèle dans la scène via des boutons sur le côté de l'écran. Il y en a 6 en tout :
 
-## React Compiler
+idle : qui est la pose en T où le modèle ne bouge pas et qui est "l'animation de base" quand on arrive sur l'application.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+danse : qui est une danse de breakdance.
 
-## Expanding the ESLint configuration
+salto : une animation de salto où le modèle prend appui sur l'écran.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+coup de pied : un coup de pied latéral avec un léger saut.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+magie : une animation simple où le modèle mime le lancement d'un sort.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+téléphone : le modèle mime de répondre à un appel et se déplace un peu.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Pour le Model
+Malheureusement je voulais à la base utiliser un model qui venais du jeu mais à cause de la difficulté d'accorder le model au animation mixamo je me suis rabattu sur un model neutre de mixamo
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+lien vers le model de base : 
+https://sketchfab.com/3d-models/yu-narukami-p5r-24f399e6f82a45d39017ee0a94ad93ce
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Toutes les animations ainsi que le modèle ont été récupérés sur le site Mixamo. Je les ai exportés en FBX puis je les ai convertis en GLB pour pouvoir les manipuler plus simplement dans le code (avec le useGLTF). 
 
-#F9E219
+-- Liens Mixamo :
+
+Le modèle : https://www.mixamo.com/#/?page=1&query=xbot&type=Character (x bot)
+
+Les animations :
+
+danse : https://www.mixamo.com/#/?page=1&query=breakdance&type=Motion%2CMotionPack (breakdance freeze var 2)
+salto : https://www.mixamo.com/#/?page=1&query=flip&type=Motion%2CMotionPack (run on flip)
+coup de pied : https://www.mixamo.com/#/?page=1&query=kick&type=Motion%2CMotionPack (inside crescent kick)
+magie : https://www.mixamo.com/#/?page=1&query=cast+spell&type=Motion%2CMotionPack (standing 2h magic attack 01)
+téléphone : https://www.mixamo.com/#/?page=1&query=phone&type=Motion%2CMotionPack (talking on phone)
+
+-- La musique :
+
+L'utilisateur a aussi la possibilité de lancer une musique via un bouton en bas à droite de l'écran. La musique utilisée est Corner of Memories, la musique de l'écran titre de Persona 4.
+
+Lien vers la musique : https://www.youtube.com/watch?v=iV1o6tbZLZk&list=RDiV1o6tbZLZk&start_radio=1
